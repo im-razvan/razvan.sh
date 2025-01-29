@@ -1,0 +1,143 @@
+:root {
+  --bg: #0a0a14;
+  --fg: #a8a8a8;
+  --highlight: #4a9eff;
+  --link: #66b3ff;
+  --c3: #80ccff;
+  --c4: #99e6ff;
+  --c5: #b3f0ff;
+  --c6: #ccf5ff;
+  --font: 'IBM VGA', monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.prompt,
+.title,
+.highlight {
+  color: var(--highlight);
+}
+
+.prompt {
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.profile {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.profile-content {
+  flex: 1;
+}
+
+.description {
+  margin: 1rem 0;
+}
+
+.link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.section {
+  margin: 1rem 0;
+}
+
+.color-bar {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.color-segment {
+  width: 40px;
+  height: 20px;
+}
+
+/* Mainly for mobile devices */
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+  .container {
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+  .color-bar {
+    width: 100%;
+    justify-content: center;
+  }
+  .color-segment {
+    width: 30px;
+    height: 15px;
+  }
+}
+
+.color-1 { background-color: var(--highlight); }
+.color-2 { background-color: var(--link); }
+.color-3 { background-color: var(--c3); }
+.color-4 { background-color: var(--c4); }
+.color-5 { background-color: var(--c5); }
+.color-6 { background-color: var(--c6); }
+
+::selection{
+  background: var(--highlight);
+  color: var(--bg);
+}
+
+::-moz-selection {
+  background: var(--highlight);
+  color: var(--bg);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  opacity: 0.5;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.footer:hover {
+  opacity: 1;
+}
