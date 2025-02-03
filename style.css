@@ -1,112 +1,107 @@
 :root {
-  --bg: #0a0a14;
-  --fg: #a8a8a8;
-  --highlight: #4a9eff;
-  --link: #66b3ff;
-  --c3: #80ccff;
-  --c4: #99e6ff;
-  --c5: #b3f0ff;
-  --c6: #ccf5ff;
-  --font: 'IBM VGA', monospace;
+    --bg: #0a0a14;
+    --terminal-bg: #1a1b26;
+    --fg: #a8a8a8;
+    --highlight: #4a9eff;
+    --link: #66b3ff;
+    --c3: #80ccff;
+    --c4: #99e6ff;
+    --c5: #b3f0ff;
+    --c6: #ccf5ff;
+    --font: 'IBM VGA', monospace;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font);
-  line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font);
+    line-height: 1.6;
 }
 
-.container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
+.terminal-window {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--terminal-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    overflow: hidden;
 }
 
-.prompt,
-.title,
-.highlight {
-  color: var(--highlight);
+.terminal-header {
+    background: #1e1e2e;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
 }
 
-.prompt {
-  margin-bottom: 0.5rem;
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
 }
 
-.title {
-  margin: 0;
-  font-size: 1.2rem;
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
 }
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-title {
+    color: #6272a4;
+    text-align: center;
+    flex-grow: 1;
+    margin-left: -50px;
+}
+
+.terminal-content {
+    padding: 20px;
+}
+
+.prompt { color: var(--highlight); }
 
 .profile {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
 }
 
 .profile-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
 }
 
-.profile-content {
-  flex: 1;
+.title {
+    margin: 0;
+    color: var(--highlight);
+    font-size: 1.2rem;
 }
 
-.description {
-  margin: 1rem 0;
-}
+.highlight { color: var(--highlight); }
 
 .link {
-  color: var(--link);
-  text-decoration: none;
+    color: var(--link);
+    text-decoration: none;
+    margin-right: 10px;
 }
 
-.link:hover {
-  text-decoration: underline;
-}
+.link:hover { text-decoration: underline; }
 
-.section {
-  margin: 1rem 0;
-}
+.section { margin: 1rem 0; }
 
 .color-bar {
-  display: flex;
-  margin: 2rem 0;
+    display: flex;
+    margin: 2rem 0;
 }
 
 .color-segment {
-  width: 40px;
-  height: 20px;
-}
-
-/* Mainly for mobile devices */
-@media (max-width: 600px) {
-  .profile {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-  }
-  .profile-image {
-    width: 120px;
-    height: 120px;
-  }
-  .container {
-    margin: 1rem auto;
-    padding: 0.5rem;
-  }
-  .color-bar {
-    width: 100%;
-    justify-content: center;
-  }
-  .color-segment {
-    width: 30px;
-    height: 15px;
-  }
+    width: 40px;
+    height: 20px;
 }
 
 .color-1 { background-color: var(--highlight); }
@@ -116,28 +111,36 @@ body {
 .color-5 { background-color: var(--c5); }
 .color-6 { background-color: var(--c6); }
 
-::selection{
-  background: var(--highlight);
-  color: var(--bg);
-}
-
-::-moz-selection {
-  background: var(--highlight);
-  color: var(--bg);
+::selection {
+    background: var(--highlight);
+    color: var(--bg);
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0;
-  opacity: 0.5;
-  font-size: 0.9rem;
-  transition: opacity 0.3s ease;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 1rem 0;
 }
 
-.footer:hover {
-  opacity: 1;
+@media (max-width: 600px) {
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    .terminal-window { margin: 1rem; }
+    .color-bar {
+        justify-content: center;
+    }
+    .color-segment {
+        width: 30px;
+        height: 15px;
+    }
 }
